@@ -2,6 +2,73 @@
 @import "~tailwindcss/components";
 @import "~tailwindcss/utilities";
 
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
+
 trix-toolbar {
-  @apply fixed bottom-0 mb-8;
+  @apply fixed bottom-0 left-0 flex justify-center w-full mb-4 z-10;
+
+  .trix-button-row {
+    @apply flex bg-gray-200 justify-center;
+  }
+  .trix-button-group {
+    @apply bg-gray-400 px-4 py-2 m-2;
+  }
+  .trix-button {
+    &--icon {
+      @apply bg-gray-800 py-2 px-4;
+      @extend %fa-icon;
+      @extend .fas;
+      font-size: 0;
+
+      &::before {
+        @apply text-base;
+      }
+
+      &-bold::before {
+        content: fa-content($fa-var-bold);
+      }
+      &-italic::before {
+        content: fa-content($fa-var-italic);
+      }
+      &-strike::before {
+        content: fa-content($fa-var-strikethrough);
+      }
+      &-link::before {
+        content: fa-content($fa-var-link);
+      }
+      &-heading-1::before {
+        content: fa-content($fa-var-heading);
+      }
+      &-quote::before {
+        content: fa-content($fa-var-quote-right);
+      }
+      &-code::before {
+        content: fa-content($fa-var-code);
+      }
+      &-bullet-list::before {
+        content: fa-content($fa-var-list);
+      }
+      &-number-list::before {
+        content: fa-content($fa-var-list-ol);
+      }
+      &-decrease-nesting-level::before {
+        content: fa-content($fa-var-outdent);
+      }
+      &-increase-nesting-level::before {
+        content: fa-content($fa-var-indent);
+      }
+      &-attach::before {
+        content: fa-content($fa-var-paperclip);
+      }
+      &-undo::before {
+        content: fa-content($fa-var-undo);
+      }
+      &-redo::before {
+        content: fa-content($fa-var-redo);
+      }
+    }
+  }
 }
