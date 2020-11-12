@@ -62,5 +62,12 @@ document.addEventListener("trix-change", (event) => {
       editor.deleteInDirection("backward")
       editor.activateAttribute("bullet")
     }
+  } else if (currentLine.match(/^> /)) {
+    console.log("quote")
+    if (editor.canActivateAttribute("quote")) {
+      editor.deleteInDirection("backward")
+      editor.deleteInDirection("backward")
+      editor.activateAttribute("quote")
+    }
   }
 })
