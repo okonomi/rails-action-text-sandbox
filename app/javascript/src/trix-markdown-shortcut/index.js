@@ -69,5 +69,13 @@ document.addEventListener("trix-change", (event) => {
       editor.deleteInDirection("backward")
       editor.activateAttribute("quote")
     }
+  } else if (currentLine.match(/^```/)) {
+    console.log("code")
+    if (editor.canActivateAttribute("code")) {
+      editor.deleteInDirection("backward")
+      editor.deleteInDirection("backward")
+      editor.deleteInDirection("backward")
+      editor.activateAttribute("code")
+    }
   }
 })
